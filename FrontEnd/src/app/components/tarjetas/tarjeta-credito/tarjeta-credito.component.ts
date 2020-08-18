@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TarjetaService } from 'src/app/services/tarjeta.service';
 import { TarjetaCredito } from '../../../models/tarjetaCredito';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tarjeta-credito',
@@ -13,7 +14,8 @@ export class TarjetaCreditoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private tarjetaService: TarjetaService
+    private tarjetaService: TarjetaService,
+    private toastr: ToastrService
   ) {
     this.form = this.formBuilder.group({
       id: 0,
@@ -48,7 +50,7 @@ export class TarjetaCreditoComponent implements OnInit {
     };
 
     this.tarjetaService.guardarTarjeta(tarjeta).subscribe((data) => {
-      console.log('Registro Agregado', 'La tarjeta fue agregada');
+      this.toastr.success('Registro Agregado', 'La tarjeta fue agregada');
       this.form.reset();
     });
   }
