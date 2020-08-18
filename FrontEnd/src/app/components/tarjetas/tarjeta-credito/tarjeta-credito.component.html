@@ -3,7 +3,8 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle" [class.grenn-icon]="this.form.get('titular').valid"
+            [class.red-icon]="this.form.get('titular').invalid && this.form.get('titular').touched "></i>
         </div>
       </div>
       <input type="text" class="form-control" formControlName="titular" placeholder="Titular">
@@ -13,10 +14,12 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i class="fas fa-credit-card"></i>
+          <i class="fas fa-credit-card" [class.grenn-icon]="this.form.get('NumeroTarjeta').valid"
+            [class.red-icon]="this.form.get('NumeroTarjeta').invalid && this.form.get('NumeroTarjeta').touched "></i>
         </div>
       </div>
-      <input type="text" class="form-control" formControlName="NumeroTarjeta" placeholder="Numero de Tarjeta">
+      <input type="text" class="form-control" formControlName="NumeroTarjeta" maxlength="16"
+        placeholder="Numero de Tarjeta">
     </div>
   </div>
   <div class="row">
@@ -25,10 +28,11 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i class="fas fa-calendar-alt"></i>
+              <i class="fas fa-calendar-alt" [class.grenn-icon]="this.form.get('fechaExpiracion').valid"
+                [class.red-icon]="this.form.get('fechaExpiracion').invalid && this.form.get('fechaExpiracion').touched "></i>
             </div>
           </div>
-          <input type="text" class="form-control" formControlName="fechaExpiracion" placeholder="DD/MM">
+          <input type="text" class="form-control" formControlName="fechaExpiracion" maxlength="5" placeholder="DD/MM">
         </div>
       </div>
     </div>
@@ -37,15 +41,17 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i class="fas fa-key"></i>
+              <i class="fas fa-key" [class.grenn-icon]="this.form.get('cvv').valid"
+                [class.red-icon]="this.form.get('cvv').invalid && this.form.get('cvv').touched "></i>
             </div>
           </div>
-          <input type="text" class="form-control" formControlName="cvv" placeholder="CVV">
+          <input type="text" class="form-control" formControlName="cvv" placeholder="CVV" maxlength="3">
         </div>
       </div>
     </div>
   </div>
   <div class="form group">
-    <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Aceptar</button>
+    <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit"><i
+        class="fas fa-database"></i> Aceptar</button>
   </div>
 </form>
