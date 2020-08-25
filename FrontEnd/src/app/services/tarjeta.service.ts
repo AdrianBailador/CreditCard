@@ -20,7 +20,11 @@ export class TarjetaService {
     );
   }
 
-  obtenerTarjeta() {
+  eliminarTarjeta(id: number): Observable<TarjetaCredito> {
+    return this.http.delete<TarjetaCredito>(this.myAppUrl + this.myApiUrl + id);
+  }
+
+  obtenerTarjetas() {
     this.http
       .get(this.myAppUrl + this.myApiUrl)
       .toPromise()
