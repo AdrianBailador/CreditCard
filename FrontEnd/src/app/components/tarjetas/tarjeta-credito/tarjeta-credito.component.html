@@ -3,45 +3,27 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i
-            class="fas fa-user-circle"
-            [class.grenn-icon]="this.form.get('titular').valid"
-            [class.red-icon]="
+          <i class="fas fa-user-circle" [class.grenn-icon]="this.form.get('titular').valid" [class.red-icon]="
               this.form.get('titular').invalid &&
               this.form.get('titular').touched
-            "
-          ></i>
+            "></i>
         </div>
       </div>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="titular"
-        placeholder="Titular"
-      />
+      <input type="text" class="form-control" formControlName="titular" placeholder="Titular" />
     </div>
   </div>
   <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i
-            class="fas fa-credit-card"
-            [class.grenn-icon]="this.form.get('numeroTarjeta').valid"
-            [class.red-icon]="
+          <i class="fas fa-credit-card" [class.grenn-icon]="this.form.get('numeroTarjeta').valid" [class.red-icon]="
               this.form.get('numeroTarjeta').invalid &&
               this.form.get('numeroTarjeta').touched
-            "
-          ></i>
+            "></i>
         </div>
       </div>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="numeroTarjeta"
-        maxlength="16"
-        placeholder="Numero de Tarjeta"
-      />
+      <input type="text" class="form-control" formControlName="numeroTarjeta" maxlength="16"
+        placeholder="Numero de Tarjeta" />
     </div>
   </div>
   <div class="row">
@@ -50,23 +32,14 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i
-                class="fas fa-calendar-alt"
-                [class.grenn-icon]="this.form.get('fechaExpiracion').valid"
+              <i class="fas fa-calendar-alt" [class.grenn-icon]="this.form.get('fechaExpiracion').valid"
                 [class.red-icon]="
                   this.form.get('fechaExpiracion').invalid &&
                   this.form.get('fechaExpiracion').touched
-                "
-              ></i>
+                "></i>
             </div>
           </div>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="fechaExpiracion"
-            maxlength="5"
-            placeholder="DD/MM"
-          />
+          <input type="text" class="form-control" formControlName="fechaExpiracion" maxlength="5" placeholder="MM/YY" />
         </div>
       </div>
     </div>
@@ -75,32 +48,18 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
-              <i
-                class="fas fa-key"
-                [class.grenn-icon]="this.form.get('cvv').valid"
-                [class.red-icon]="
+              <i class="fas fa-key" [class.grenn-icon]="this.form.get('cvv').valid" [class.red-icon]="
                   this.form.get('cvv').invalid && this.form.get('cvv').touched
-                "
-              ></i>
+                "></i>
             </div>
           </div>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="cvv"
-            placeholder="CVV"
-            maxlength="3"
-          />
+          <input type="text" class="form-control" formControlName="cvv" placeholder="CVV" maxlength="3" />
         </div>
       </div>
     </div>
   </div>
   <div class="form group">
-    <button
-      class="btn btn-success btn-lg btn-block"
-      [disabled]="form.invalid"
-      type="submit"
-    >
+    <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit">
       <i class="fas fa-database"></i> Aceptar
     </button>
   </div>

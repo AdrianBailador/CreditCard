@@ -9,6 +9,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class TarjetaService {
   myAppUrl = 'https://localhost:44332/';
   myApiUrl = 'api/TarjetaCredito/';
+  list: TarjetaCredito[];
 
   constructor(private http: HttpClient) {}
 
@@ -17,5 +18,14 @@ export class TarjetaService {
       this.myAppUrl + this.myApiUrl,
       tarjeta
     );
+  }
+
+  obtenerTarjeta() {
+    this.http
+      .get(this.myAppUrl + this.myApiUrl)
+      .toPromise()
+      .then((data) => {
+        this.list = data as TarjetaCredito[];
+      });
   }
 }
