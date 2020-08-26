@@ -25,4 +25,7 @@ export class ListTarjetaCreditoComponent implements OnInit {
       });
     }
   }
+  editar(tarjeta) {
+    this.tarjetaService.actualizar(tarjeta);
+  }
 }

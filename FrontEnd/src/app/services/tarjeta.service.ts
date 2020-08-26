@@ -10,6 +10,7 @@ export class TarjetaService {
   myAppUrl = 'https://localhost:44332/';
   myApiUrl = 'api/TarjetaCredito/';
   list: TarjetaCredito[];
+  private actualizarFormulario = new BehaviorSubject<TarjetaCredito>({} as any);
 
   constructor(private http: HttpClient) {}
 
@@ -31,5 +32,22 @@ export class TarjetaService {
       .then((data) => {
         this.list = data as TarjetaCredito[];
       });
+  }
+  actualizarTarjeta(
+    id: number,
+    tarjeta: TarjetaCredito
+  ): Observable<TarjetaCredito> {
+    return this.http.put<TarjetaCredito>(
+      this.myAppUrl + this.myApiUrl + id,
+      tarjeta
+    );
+  }
+
+  actualizar(tarjeta) {
+    this.actualizarFormulario.next(tarjeta);
+  }
+
+  obtenerTarjeta$(): Observable<TarjetaCredito> {
+    return this.actualizarFormulario.asObservable();
   }
 }
